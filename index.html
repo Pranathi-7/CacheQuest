@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#247fbd">
+    <title>Cache Memory | CacheQuest</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="#home" class="brand" data-page="home">
+            Cache<span>Quest</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="#home" data-page="home" class="nav-link active">Home</a>
+            <a href="#theory" data-page="theory" class="nav-link">Theory</a>
+            <a href="#simulator" data-page="simulator" class="nav-link">Simulator</a>
+            <a href="#flashcards" data-page="flashcards" class="nav-link">Flashcards</a>
+            <a href="#quiz" data-page="quiz" class="nav-link">Quiz</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- HOME -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <p class="eyebrow">COMPUTER ORGANIZATION & ARCHITECTURE</p>
+                <h1>Cache Memory</h1>
+                <p class="hero-text">
+                    Understand how computers access data faster through
+                    simple explanations, a Doraemon-inspired analogy,
+                    an interactive cache simulator, flashcards and quizzes.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn" data-page="theory">Explore Theory</button>
+                    <button class="btn btn-outline" data-page="simulator">
+                        Try the Simulator
+                    </button>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <p class="eyebrow">YOUR LEARNING PATH</p>
+                <h2>Explore Cache Memory</h2>
+                <p>Learn the concepts, experiment, revise and test yourself.</p>
+            </div>
+
+            <div class="card-grid">
+                <button class="feature-card" data-page="theory">
+                    <span class="feature-icon">01</span>
+                    <h3>Learn the Theory</h3>
+                    <p>Understand RAM, cache, hits, misses and mapping techniques.</p>
+                    <span class="card-link">Explore theory →</span>
+                </button>
+
+                <button class="feature-card" data-page="simulator">
+                    <span class="feature-icon">02</span>
+                    <h3>Cache Simulator</h3>
+                    <p>Drag memory blocks into cache lines and experiment with mapping.</p>
+                    <span class="card-link">Open simulator →</span>
+                </button>
+
+                <button class="feature-card" data-page="flashcards">
+                    <span class="feature-icon">03</span>
+                    <h3>Flashcards</h3>
+                    <p>Revise one concept at a time and reveal the answer.</p>
+                    <span class="card-link">Start revision →</span>
+                </button>
+
+                <button class="feature-card" data-page="quiz">
+                    <span class="feature-icon">04</span>
+                    <h3>Test Your Knowledge</h3>
+                    <p>Answer MCQs and learn why each option is right or wrong.</p>
+                    <span class="card-link">Take the quiz →</span>
+                </button>
+            </div>
+
+            <div class="concept-banner">
+                <p class="eyebrow">THE CORE IDEA</p>
+                <h2>Small. Fast. Close to the CPU.</h2>
+                <p>
+                    Cache keeps copies of selected data from main memory
+                    so the processor can access that data more quickly.
+                </p>
+            </div>
+        </section>
+
+        <!-- THEORY -->
+        <section id="theory" class="page-section">
+            <div class="page-heading">
+                <p class="eyebrow">LEARN THE FUNDAMENTALS</p>
+                <h1>Cache Memory Theory</h1>
+                <p>Understand each concept before trying the simulator.</p>
+            </div>
+
+            <div class="card-grid">
+                <article class="info-card">
+                    <span class="feature-icon">01</span>
+                    <h2>Main Memory (RAM)</h2>
+                    <p>
+                        Main memory stores the programs and data the computer
+                        is currently using. It has much greater capacity than
+                        cache but is generally slower to access.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <span class="feature-icon">02</span>
+                    <h2>Cache Memory</h2>
+                    <p>
+                        Cache is small, fast memory located close to or
+                        integrated with the processor. It stores copies of
+                        selected data from lower memory levels.
+                    </p>
+                </article>
+
+                <article class="info-card success-card">
+                    <span class="feature-icon">03</span>
+                    <h2>Cache Hit</h2>
+                    <p>
+                        A hit occurs when the processor requests data that
+                        is already present in the cache.
+                    </p>
+                </article>
+
+                <article class="info-card warning-card">
+                    <span class="feature-icon">04</span>
+                    <h2>Cache Miss</h2>
+                    <p>
+                        A miss occurs when the requested data is absent
+                        from the cache. The system must fetch it from a
+                        lower memory level.
+                    </p>
+                </article>
+            </div>
+
+            <div class="section-heading">
+                <p class="eyebrow">THE DORAEMON ANALOGY</p>
+                <h2>Understanding with Gadgets</h2>
+                <p>
+                    Imagine Doraemon has a desk full of gadgets and keeps
+                    copies of frequently or recently needed gadgets in
+                    his 4D pocket for quicker access.
+                </p>
+            </div>
+
+            <div class="pocket-illustration-card">
+                <div class="pocket-illustration">
+                    <img
+                        src="./doraemon_fixed.jpg"
+                        alt="Doraemon "
+                        class="doraemon-image"
+                    >
+                </div>
+
+                <div class="pocket-illustration-copy">
+                    <span class="tag">4D pocket = Cache</span>
+                    <h3>Keep useful things close</h3>
+                    <p>
+                        In this analogy, Doraemon's pocket holds copies of
+                        gadgets he may need again. Cache works similarly by
+                        keeping copies of selected data close to the CPU.
+                    </p>
+
+                    <div class="pocket-key">
+                        <span><i class="key-dot key-cache"></i> Pocket: small and fast</span>
+                        <span><i class="key-dot key-memory"></i> Desk and drawers: larger and slower</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analogy-grid">
+                <article class="analogy-card">
+                    <span class="feature-icon">01</span>
+                    <h3>Main Memory (RAM)</h3>
+                    <h4>Doraemon's desk and drawers</h4>
+                    <p>
+                        Imagine his desk and drawers contain his complete
+                        gadget collection: the Time Machine, Small Light
+                        and other gadgets.
+                    </p>
+                    <p>This represents the larger storage containing available data.</p>
+                    <span class="tag">Larger capacity</span>
+                </article>
+
+                <article class="analogy-card">
+                    <span class="feature-icon">02</span>
+                    <h3>Cache Memory</h3>
+                    <h4>Doraemon's 4D pocket</h4>
+                    <p>
+                        Imagine Doraemon keeps copies of gadgets he has
+                        used recently or expects to need again in his pocket.
+                    </p>
+                    <p>This represents smaller, faster storage holding selected data.</p>
+                    <span class="tag">Smaller and faster</span>
+                </article>
+
+                <article class="analogy-card hit-card">
+                    <span class="feature-icon">03</span>
+                    <h3>Cache Hit</h3>
+                    <h4>The Take-copter is in the pocket</h4>
+                    <p>
+                        Nobita asks for the Take-copter. Doraemon finds
+                        it in his pocket and retrieves it immediately.
+                    </p>
+                    <p>The requested data is already in cache.</p>
+                    <span class="tag tag-green">Found quickly</span>
+                </article>
+
+                <article class="analogy-card miss-card">
+                    <span class="feature-icon">04</span>
+                    <h3>Cache Miss</h3>
+                    <h4>The Time Machine is missing</h4>
+                    <p>
+                        Nobita asks for the Time Machine, but it is not
+                        in Doraemon's pocket. Doraemon retrieves it from
+                        his desk and drawers.
+                    </p>
+                    <p>The requested data must be fetched from a lower memory level.</p>
+                    <span class="tag tag-orange">Extra access needed</span>
+                </article>
+            </div>
+
+            <div class="analogy-note">
+                <strong>Remember:</strong> The pocket is a metaphor for cache.
+                Real cache stores copies of data, not physical gadgets.
+                A cache miss means the requested data is absent, not that
+                the data does not exist in main memory.
+            </div>
+
+            <div class="section-heading">
+                <p class="eyebrow">IMPORTANT CONCEPTS</p>
+                <h2>How Cache Works</h2>
+            </div>
+
+            <div class="mapping-list">
+                <article class="info-card">
+                    <h2>Locality of Reference</h2>
+                    <p>
+                        Programs tend to reuse recently accessed data
+                        (temporal locality) and access nearby memory
+                        locations (spatial locality). Cache takes advantage
+                        of these patterns.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h2>Cache Hit Ratio</h2>
+                    <p>The proportion of memory requests that are found in cache.</p>
+                    <div class="formula">
+                        Hit Ratio = Cache Hits / Total Memory Accesses
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <h2>Cache Miss Ratio</h2>
+                    <p>The proportion of memory requests that are not found in cache.</p>
+                    <div class="formula">
+                        Miss Ratio = Cache Misses / Total Memory Accesses
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-heading">
+                <p class="eyebrow">MAPPING TECHNIQUES</p>
+                <h2>Where Does a Block Go?</h2>
+                <p>Mapping determines where a main-memory block can be placed in cache.</p>
+            </div>
+
+            <div class="mapping-list">
+                <article class="info-card mapping-detail">
+                    <div class="mapping-card-heading">
+                        <span class="feature-icon">01</span>
+                        <div>
+                            <p class="eyebrow">FIXED DESTINATION</p>
+                            <h3>Direct Mapping</h3>
+                        </div>
+                    </div>
+                    <p>
+                        Each main-memory block can occupy exactly one cache line.
+                    </p>
+                    <div class="formula">
+                        Cache line = Block number MOD Number of cache lines
+                    </div>
+                    <h4>Example</h4>
+                    <p>For block 6 and 4 cache lines:</p>
+                    <div class="calculation">6 MOD 4 = 2</div>
+                    <p>Block 6 must be placed in cache line 2.</p>
+                    <div class="mapping-pros-cons">
+                        <div>
+                            <strong>Advantages</strong>
+                            <ul>
+                                <li>Simple and inexpensive</li>
+                                <li>Fast to locate a line</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Disadvantages</strong>
+                            <ul>
+                                <li>Blocks may compete for one line</li>
+                                <li>Can cause conflict misses</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="doraemon-tip">
+                        <strong>Doraemon example:</strong> Every gadget has one
+                        specific pocket slot assigned by its block number.
+                    </div>
+                </article>
+
+                <article class="info-card mapping-detail">
+                    <div class="mapping-card-heading">
+                        <span class="feature-icon">02</span>
+                        <div>
+                            <p class="eyebrow">ANY DESTINATION</p>
+                            <h3>Fully Associative Mapping</h3>
+                        </div>
+                    </div>
+                    <p>
+                        A memory block can be placed in any available cache line.
+                    </p>
+                    <div class="formula">
+                        Any memory block → Any cache line
+                    </div>
+                    <h4>Example</h4>
+                    <p>
+                        With 4 cache lines, block 6 can be placed in line 0,
+                        1, 2 or 3 if the line is available.
+                    </p>
+                    <div class="mapping-pros-cons">
+                        <div>
+                            <strong>Advantages</strong>
+                            <ul>
+                                <li>Flexible placement</li>
+                                <li>Fewer placement conflicts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Disadvantages</strong>
+                            <ul>
+                                <li>Requires searching tags</li>
+                                <li>Hardware is more complex</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="doraemon-tip">
+                        <strong>Doraemon example:</strong> A gadget can go into
+                        any free pocket space.
+                    </div>
+                </article>
+
+                <article class="info-card mapping-detail">
+                    <div class="mapping-card-heading">
+                        <span class="feature-icon">03</span>
+                        <div>
+                            <p class="eyebrow">GROUPED DESTINATIONS</p>
+                            <h3>Set-Associative Mapping</h3>
+                        </div>
+                    </div>
+                    <p>
+                        Cache is divided into sets. A block maps to one set,
+                        but can occupy any line within that set.
+                    </p>
+                    <div class="formula">
+                        Set number = Block number MOD Number of sets
+                    </div>
+                    <h4>Example</h4>
+                    <p>
+                        With 4 cache lines and 2-way associativity, there are
+                        2 sets with 2 lines per set. Block 6 maps to set 0
+                        because 6 MOD 2 = 0.
+                    </p>
+                    <div class="mapping-pros-cons">
+                        <div>
+                            <strong>Advantages</strong>
+                            <ul>
+                                <li>Balances flexibility and cost</li>
+                                <li>Reduces some conflict misses</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Disadvantages</strong>
+                            <ul>
+                                <li>More complex than direct mapping</li>
+                                <li>Blocks can still compete within a set</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="doraemon-tip">
+                        <strong>Doraemon example:</strong> A gadget is assigned
+                        to one pocket section but can use either slot in it.
+                    </div>
+                </article>
+            </div>
+
+            <article class="info-card mapping-comparison">
+                <h2>Compare the Mapping Techniques</h2>
+                <div class="table-wrap">
+                    <table class="mapping-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Direct</th>
+                                <th>Fully Associative</th>
+                                <th>Set Associative</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Block placement</td>
+                                <td>One specific line</td>
+                                <td>Any line</td>
+                                <td>Any line in its set</td>
+                            </tr>
+                            <tr>
+                                <td>Placement flexibility</td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Hardware complexity</td>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Main conflict risk</td>
+                                <td>Blocks sharing a line</td>
+                                <td>Lower placement restriction</td>
+                                <td>Blocks sharing a set</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <div class="page-actions">
+                <button class="btn" data-page="simulator">Try the Simulator →</button>
+                <button class="btn btn-outline" data-page="flashcards">
+                    Revise with Flashcards
+                </button>
+            </div>
+        </section>
+
+        <!-- SIMULATOR -->
+        <section id="simulator" class="page-section">
+            <div class="page-heading">
+                <p class="eyebrow">INTERACTIVE CACHE LAB</p>
+                <h1>Cache Memory Simulator</h1>
+                <p>
+                    Drag a memory block from the left into a cache line
+                    on the right. The mapping rules determine whether
+                    the placement is valid.
+                </p>
+            </div>
+
+            <div class="simulator-panel">
+                <div class="sim-controls">
+                    <label>
+                        Mapping technique
+                        <select id="mappingType">
+                            <option value="direct">Direct Mapping</option>
+                            <option value="fully">Fully Associative</option>
+                            <option value="set">2-Way Set Associative</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Number of cache lines
+                        <input id="lineCount" type="number"
+                               min="1" max="64" step="1" value="4">
+                    </label>
+
+                    <button id="applyConfig" class="btn" type="button">
+                        Apply Settings
+                    </button>
+
+                    <button id="resetCache" class="btn btn-outline" type="button">
+                        Reset Cache
+                    </button>
+                </div>
+
+                <p id="mappingHint" class="mapping-hint">
+                    Direct mapping: each block has one permitted line.
+                </p>
+
+                <div class="simulator-learning-guide">
+                    <div class="sim-guide-heading">
+                        <span class="feature-icon">?</span>
+                        <div>
+                            <p class="eyebrow">HOW TO SOLVE</p>
+                            <h2 id="simGuideTitle">Direct Mapping: Find the line</h2>
+                        </div>
+                    </div>
+                    <p id="simGuideIntro">
+                        Calculate the remainder after dividing the block number
+                        by the number of cache lines. That remainder is the
+                        only valid destination.
+                    </p>
+                    <div id="simGuideFormula" class="formula">
+                        Line = Block number MOD Number of cache lines
+                    </div>
+                    <ol id="simGuideSteps" class="sim-guide-steps">
+                        <li>Read the memory block number.</li>
+                        <li>Divide it by the number of cache lines.</li>
+                        <li>Use the remainder as the line number.</li>
+                    </ol>
+                    <div class="doraemon-tip">
+                        <strong>Doraemon tip:</strong> Think of the cache as his
+                        4D pocket. The mapping rule tells you which pocket slot
+                        or section a gadget can use.
+                    </div>
+                </div>
+
+                <div class="simulator-layout">
+                    <section class="memory-panel">
+                        <div class="panel-heading">
+                            <h2>Memory Blocks</h2>
+                            <p>Drag a numbered block into a cache line.</p>
+                        </div>
+                        <div id="memoryBlocks" class="memory-block-grid"></div>
+                    </section>
+
+                    <section class="cache-panel">
+                        <div class="panel-heading">
+                            <h2>Cache Lines</h2>
+                            <p id="lineCountLabel">4 lines</p>
+                        </div>
+                        <div id="cacheLines" class="cache-line-list"></div>
+                    </section>
+                </div>
+
+                <div id="simFeedback" class="feedback" role="status"
+                     aria-live="polite">
+                    Drag a memory block into a cache line to begin.
+                </div>
+
+                <div class="sim-stats">
+                    <div class="stat-card">
+                        <span>Hits</span>
+                        <strong id="hitCount">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Misses</span>
+                        <strong id="missCount">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Replacements</span>
+                        <strong id="replacementCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-banner">
+                <h2>Try this example</h2>
+                <p>
+                    Set Direct Mapping and 4 cache lines. Drag block 6
+                    to line 2. Then try dropping it into line 0 and
+                    read the explanation. Switch to Fully Associative
+                    mapping to experiment with other destinations.
+                </p>
+            </div>
+        </section>
+
+        <!-- FLASHCARDS -->
+        <section id="flashcards" class="page-section">
+            <div class="page-heading">
+                <p class="eyebrow">QUICK REVISION</p>
+                <h1>Cache Memory Flashcards</h1>
+                <p>Think of the answer before revealing it.</p>
+            </div>
+
+            <div class="flashcard-area">
+                <div class="flashcard-progress">
+                    <span id="flashcardCounter">Card 1 of 8</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="flashcardProgress" class="progress-fill"></div>
+                </div>
+
+                <div class="flashcard-scene"
+                     aria-label="Flashcard. Click the card or use the flip button to reveal the answer.">
+                    <article class="flashcard"
+                             id="flashcard"
+                             tabindex="0"
+                             role="button"
+                             aria-label="Flip flashcard to reveal answer"
+                             aria-pressed="false">
+                        <div class="flashcard-inner" id="flashcardInner">
+                            <div class="flashcard-face flashcard-front">
+                                <p class="eyebrow">QUESTION · TAP TO FLIP</p>
+                                <h2 id="flashcardQuestion">What is cache memory?</h2>
+                                <p class="flashcard-hint">
+                                    Think of the answer, then flip the card ↻
+                                </p>
+                            </div>
+
+                            <div class="flashcard-face flashcard-back"
+                                 aria-live="polite">
+                                <p class="eyebrow">ANSWER</p>
+                                <p id="flashcardAnswer" class="flashcard-answer">
+                                    Small, fast memory that stores copies of
+                                    selected data from lower memory levels.
+                                </p>
+                                <p class="flashcard-hint">
+                                    Tap to return to the question ↻
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="flashcard-flip-control">
+                    <button id="revealAnswer" class="btn btn-outline" type="button">
+                        Flip Card ↻
+                    </button>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button id="previousCard" class="btn btn-outline" type="button">
+                        ← Previous
+                    </button>
+                    <button id="nextCard" class="btn" type="button">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section id="quiz" class="page-section">
+            <div class="page-heading">
+                <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
+                <h1>Cache Memory Quiz</h1>
+                <p>
+                    Choose an answer and submit it to learn why every
+                    option is correct or incorrect.
+                </p>
+            </div>
+
+            <div class="quiz-panel">
+                <div class="quiz-progress">
+                    <span id="quizCounter">Question 1 of 8</span>
+                    <span id="quizScore">Score: 0</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="quizProgress" class="progress-fill"></div>
+                </div>
+
+                <h2 id="quizQuestion" class="quiz-question"></h2>
+                <div id="quizOptions" class="quiz-options"></div>
+
+                <div id="quizExplanation" class="quiz-explanation"
+                     aria-live="polite" hidden></div>
+
+                <div class="quiz-controls">
+                    <button id="submitAnswer" class="btn" type="button">
+                        Submit Answer
+                    </button>
+                    <button id="nextQuestion" class="btn btn-outline"
+                            type="button" hidden>
+                        Next Question →
+                    </button>
+                    <button id="restartQuiz" class="btn" type="button" hidden>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        CacheQuest · Learn Computer Organization, one concept at a time.
+    </footer>
+</body>
+</html>
